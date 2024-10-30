@@ -1,5 +1,5 @@
 import "./App.css";
-import Encabezamiento from "./componets/compartidos/Encabezamiento";
+import Encabezamiento from "./componets/compartidos/Encabezado";
 import Pie from "./componets/compartidos/Pie";
 import Principal from "./componets/compartidos/Principal";
 
