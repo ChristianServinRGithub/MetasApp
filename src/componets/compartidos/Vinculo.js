@@ -1,12 +1,12 @@
-import './Vinculo.css'
+import estilos from "./Vinculo.module.css";
 
-function Vinculo({children, texto, href}) {
-    return (
-        <a href={href} className="vinculo">
-          {children}
-          <spa>{texto}</spa>
-        </a>
-    );
+function Vinculo({ Icono, texto, href }) {
+  return (
+    <a href={href} className={estilos.vinculo}>
+      <Icono className={estilos.icono} />
+      {texto && <spa className={estilos.texto}>{texto}</spa>}
+    </a>
+  );
 }
 
 export default Vinculo;

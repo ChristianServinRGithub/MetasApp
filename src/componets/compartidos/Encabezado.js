@@ -1,18 +1,17 @@
-import "./Encabezado.css";
-import { ReactComponent as LogoSVG} from "../../img/logo.svg";
+import estilos from "./Encabezado.module.css";
+import { ReactComponent as LogoSVG } from "../../img/logo.svg";
 import { ReactComponent as PerfilSVG } from "../../img/perfil.svg";
+import Vinculo from "./Vinculo";
 
 function Encabezado() {
   return (
-    <header className="encabezado">
-      <div className="titulo">
-        <LogoSVG className="logo" />
-        <a className="app">Metas App</a>
+    <header className={estilos.encabezado}>
+      <div className={estilos.titulo}>
+        <LogoSVG className={estilos.logo} />
+        <a className={estilos.app}>Metas App</a>
       </div>
       <nav>
-        <a href="/perfil" className="vinculo">
-          <PerfilSVG className="icono" />
-        </a>
+        <Vinculo href="/perfin" Icono={PerfilSVG} />
       </nav>
     </header>
   );
