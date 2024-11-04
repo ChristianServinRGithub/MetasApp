@@ -1,18 +1,20 @@
+import estilos from "./Detalles.module.css";
+
 function Detalles() {
   const opcionesDeFrecuencia = ["día", "semana", "mes", "año"];
   const opcionesDeIconos = ["📚", "✈️", "🏃🏻‍♂️", "💻​", "💵"];
   return (
-    <div>
-      <form>
-        <label>
+    <div className="tarjeta">
+      <form className="p-4">
+        <label className="label">
           Describe tu meta:
-          <input placeholder="Ej. 52 caminatas" />
+          <input className="input" placeholder="Ej. 52 caminatas" />
         </label>
-        <label>
+        <label className="label">
           ¿Con que frecuencia deseas cumplir esta meta?{" "}
           <span>(ej. 1 vez a la semana)</span>
-          <div>
-            <input type="number" />
+          <div className="flex mb-6">
+            <input className="input mr-6" type="number" />
             <select>
               {opcionesDeFrecuencia.map((option) => (
                 <option key={option} value={option}>
@@ -22,19 +24,19 @@ function Detalles() {
             </select>
           </div>
         </label>
-        <label>
+        <label className="label">
           ¿Cuantas veces deseas completar esta meta?
-          <input type="number" />
+          <input className="input" type="number" />
         </label>
-        <label>
+        <label className="label">
           ¿Tienes una fecha limite?
-          <input type="date" />
+          <input className="input" type="date" />
         </label>
-        <label>
+        <label className="label">
           ¿Cuantas veces has completado esta meta?
-          <input type="number" />
+          <input className="input" type="number" />
         </label>
-        <label>
+        <label className="label">
           Escoge un icono para tu meta
           <select>
             {opcionesDeIconos.map((opcion) => (
@@ -46,8 +48,8 @@ function Detalles() {
         </label>
       </form>
       <div>
-        <button>Crear</button>
-        <button>Cancelar</button>
+        <button className="boton boton--negro">Crear</button>
+        <button className="boton boton--gris">Cancelar</button>
       </div>
     </div>
   );
