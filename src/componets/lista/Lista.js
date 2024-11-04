@@ -9,7 +9,25 @@ const listaMock = [{
   meta: 365,
   plazo: "2030-01-01",
   completado: 5,
-}];
+}, {
+  id: "2",
+  detalles: "Leer libros",
+  periodo: "Año",
+  eventos: 6,
+  icono: "📚",
+  meta: 12,
+  plazo: "2030-01-01",
+  completado: 0,
+},{
+  id: "3",
+  detalles: "Viajar a parques nacionales",
+  periodo: "Mes",
+  eventos: 1,
+  icono: "✈️",
+  meta: 60,
+  plazo: "2030-01-01",
+  completado: 40,
+},];
 
 function Lista() {
   return (
