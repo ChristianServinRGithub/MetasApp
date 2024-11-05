@@ -38,7 +38,7 @@ function Detalles() {
         </label>
         <label className="label">
           Escoge un icono para tu meta
-          <select>
+          <select className="input">
             {opcionesDeIconos.map((opcion) => (
               <option key={opcion} value={opcion}>
                 {opcion}
@@ -47,7 +47,7 @@ function Detalles() {
           </select>
         </label>
       </form>
-      <div>
+      <div className={estilos.botones}>
         <button className="boton boton--negro">Crear</button>
         <button className="boton boton--gris">Cancelar</button>
       </div>
