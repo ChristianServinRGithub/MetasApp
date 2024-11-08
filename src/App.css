@@ -12,7 +12,7 @@
   @apply bg-black text-white nm-flat-gray-900 hover:bg-gray-500;
 }
 .boton--rojo {
-  @apply text-red-500 nm-flat-gray-100 hover:bg-gray-300;
+  @apply text-red-500 nm-flat-gray-100 hover:bg-red-500 hover:text-white border border-red-500 border-solid;
 }
 .boton--gris {
   @apply nm-flat-gray-100 hover:bg-gray-200;
