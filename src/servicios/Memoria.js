@@ -34,11 +34,13 @@ const listaMock = [
     completado: 40,
   },
 ];
-
-const estadoInicial = {
-  orden: [],
-  objetos: {},
-};
+const memoria = localStorage.getItem("metas");
+const estadoInicial = memoria
+  ? JSON.parse(memoria)
+  : {
+      orden: [],
+      objetos: {},
+    };
 
 function reductor(estado, accion) {
   switch (accion.tipo) {
@@ -51,17 +53,21 @@ function reductor(estado, accion) {
           {}
         ),
       };
+      localStorage.setItem("metas", JSON.stringify(nuevoEstado));
       return nuevoEstado;
     }
     case "crear": {
-      const id = /* accion.meta.id */ Math.random();
+      const id = Math.random().toString();
+      const nuevaMeta = { ...accion.meta, id }; // Asigna el id al objeto meta
+    
       const nuevoEstado = {
         orden: [...estado.orden, id],
         objetos: {
           ...estado.objetos,
-          [id]: accion.meta,
+          [id]: nuevaMeta,
         },
       };
+      localStorage.setItem("metas", JSON.stringify(nuevoEstado));
       return nuevoEstado;
     }
     case "actualizar": {
@@ -71,6 +77,7 @@ function reductor(estado, accion) {
         ...accion.meta,
       };
       const nuevoEstado = { ...estado };
+      localStorage.setItem("metas", JSON.stringify(nuevoEstado));
       return nuevoEstado;
     }
     case "borrar": {
@@ -81,15 +88,17 @@ function reductor(estado, accion) {
         orden: nuevoOrden,
         objetos: estado.objetos,
       };
+      localStorage.setItem("metas", JSON.stringify(nuevoEstado));
       return nuevoEstado;
     }
+    default:
+      throw new Error();
   }
 }
 
-const metas = reductor(estadoInicial, { tipo: "colocar", metas: listaMock });
 
 function Memoria({ children }) {
-  const [estado, enviar] = useReducer(reductor, metas);
+  const [estado, enviar] = useReducer(reductor, estadoInicial);
   return (
     <Contexto.Provider value={[estado, enviar]}>{children}</Contexto.Provider>
   );

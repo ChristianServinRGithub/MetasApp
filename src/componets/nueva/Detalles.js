@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function Detalles() {
   const { id } = useParams();
-  console.log(id);
 
   const opcionesDeFrecuencia = ["día", "semana", "mes", "año"];
   const opcionesDeIconos = ["📚", "✈️", "🏃🏻‍♂️", "💻​", "💵"];
@@ -27,9 +26,10 @@ function Detalles() {
   const onChange = (event, prop) => {
     setForm((estado) => ({ ...estado, [prop]: event.target.value }));
   };
+  
+  const metaMemoria = estado.objetos[id];
 
   useEffect(() => {
-    const metaMemoria = estado.objetos[id];
     if (!id) {
       return;
     }
@@ -37,7 +37,7 @@ function Detalles() {
       return navegar("/lista");
     }
     setForm(metaMemoria);
-  }, [id]);
+  }, [id, metaMemoria,]);
 
   const navegar = useNavigate();
 

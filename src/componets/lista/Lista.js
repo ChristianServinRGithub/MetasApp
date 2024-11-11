@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 
 function Lista() {
-  const [estado, enviar] = useContext(Contexto);
+  const [estado,] = useContext(Contexto);
   
   return (
     <>
